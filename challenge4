@@ -1,0 +1,9 @@
+Type of error = NameError
+
+File path = /Users/alexanderwjrussell/.rvm/rubies/ruby-2.3.0/bin/irb
+
+Error line number = 1
+
+Error means = We haven't initialized docking station
+
+Solution = Create a class to initialize docking station
