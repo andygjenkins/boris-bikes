@@ -2,7 +2,7 @@ class Bike
 
 
 def initialize
-  @broken = false
+  @working = true
 end
 
 def report_broken
