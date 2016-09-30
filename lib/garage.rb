@@ -16,6 +16,7 @@ class Garage
        @outward_bound.push(bike)
     end
      @loading_bay = []
+     @outward_bound
   end
 
   def repair
