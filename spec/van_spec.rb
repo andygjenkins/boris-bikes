@@ -9,7 +9,7 @@ describe Van do
 
 it 'picks up broken bikes' do
   bike = double(:bike, broken?: true)
-  station = double(:station)
+  station = DockingStation.new
   station.dock(bike)
   expect(subject.pick_up).to eq bike
 end
