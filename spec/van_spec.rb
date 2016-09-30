@@ -27,12 +27,30 @@ describe Van do
     let(:station) { DockingStation.new }
     let(:garage) {Garage.new}
     it 'drops off broken bikes' do
-    bike.report_broken
-    station.dock(bike)
-    station.select_bikes
-    subject.pick_up(station)
-    subject.drop_off(garage)
-    expect(garage.loading_bay).to eq [bike]
+      bike.report_broken
+      station.dock(bike)
+      station.select_bikes
+      subject.pick_up(station)
+      subject.drop_off(garage)
+      expect(garage.loading_bay).to eq [bike]
    end
   end
+
+  describe 'pick_up_fixed' do
+    let(:bike) { Bike.new }
+    let(:garage) {Garage.new}
+      it 'picks up fixed bikes' do
+        garage.outward_bound = [bike]
+        subject.pick_up_fixed(garage)
+        expect(subject.pick_up_fixed).to eq [bike]
+    end
+  end
+
+
+
+
+
+
+
+
 end

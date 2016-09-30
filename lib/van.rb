@@ -23,6 +23,8 @@ class Van
   end
 
 
+  
+
 
   def drop_off(garage)
     garage.loading_bay = @cargo
