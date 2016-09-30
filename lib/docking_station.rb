@@ -1,4 +1,5 @@
 require_relative 'bike'
+require 'van'
 
 class DockingStation
 
@@ -10,6 +11,7 @@ class DockingStation
   def initialize(capacity = DEFAULT_CAPACITY)
     @bikes = []
     @capacity = capacity
+    @broken_bikes = []
 
   end
 
@@ -24,9 +26,16 @@ class DockingStation
     @bikes << bike
   end
 
-def report_broken(bike)
-    bike.working = false
+def select_bikes
+   @bikes.each do |bike|
+    if bike.broken?
+      @broken_bikes.push(bike)
+      @bikes.delete(bike)
+    end
+  end
+  @broken_bikes
 end
+
 
   private
 

@@ -6,7 +6,7 @@ require 'van'
 describe Van do
 
 # Needs to pick up broken bikes from docking station
-
+=begin
 it 'picks up broken bikes' do
   bike = double(:bike, broken?: true)
   station = DockingStation.new
@@ -15,7 +15,7 @@ it 'picks up broken bikes' do
 end
 
 # Needs to deliver broken bikes to garage
-
+=end
 
 
 
