@@ -64,6 +64,12 @@ describe DockingStation do
     end
     end
 
+    it 'picks up broken bikes' do
+      bike = double(:bike, broken?: true)
+      subject.dock(bike)
+      expect(subject.select_bikes).to eq [bike]
+    end
+
 
 
 
