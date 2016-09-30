@@ -1,7 +1,6 @@
-# require 'docking_station'
-#
-# describe DockingStation do
-# 
-#
-#
-# end
+#require_relative 'docking_station'
+
+#station = DockingStation.new
+#bike = Bike.new
+#van = Van.new
+#garage = Garage.new

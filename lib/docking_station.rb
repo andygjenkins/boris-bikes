@@ -27,20 +27,21 @@ class DockingStation
     @bikes << bike
   end
 
-def select_bikes
-   @bikes.each do |bike|
-    if bike.broken?
+  def select_bikes
+    @bikes.each do |bike|
+     if bike.broken?
       @broken_bikes.push(bike)
-      @bikes.delete(bike)
+     end
     end
+   remove_dup_bikes
+   @broken_bikes
   end
-  @broken_bikes
-end
 
+  def remove_dup_bikes
+   @bikes.delete_if { |x| @broken_bikes.include?(x) }
+  end
 
   private
-
-
 
   def empty?
     @bikes.empty?
