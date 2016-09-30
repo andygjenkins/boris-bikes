@@ -27,11 +27,12 @@ describe Van do
     let(:station) { DockingStation.new }
     let(:garage) {Garage.new}
     it 'drops off broken bikes' do
+    bike.report_broken
     station.dock(bike)
     station.select_bikes
     subject.pick_up(station)
     subject.drop_off(garage)
-    expect(garage.loading_bay).nil?
+    expect(garage.loading_bay).to eq [bike]
    end
   end
 end
