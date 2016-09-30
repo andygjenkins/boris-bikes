@@ -5,18 +5,14 @@ require 'van'
 
 describe Van do
 
-# Needs to pick up broken bikes from docking station
-=begin
-it 'picks up broken bikes' do
-  bike = double(:bike, broken?: true)
-  station = DockingStation.new
-  station.dock(bike)
-  expect(subject.pick_up).to eq bike
-end
-
-# Needs to deliver broken bikes to garage
-=end
-
-
-
+  describe 'pick_up 'do
+    it 'picks up the broken bikes' do
+    bike = Bike.new
+    station = DockingStation.new
+    bike.report_broken
+    station.dock(bike)
+    station.select_bikes
+    expect(subject.pick_up(station)).to eq [bike]
+    end
+  end
 end
