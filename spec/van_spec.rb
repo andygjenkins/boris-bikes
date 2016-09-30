@@ -3,21 +3,9 @@ require 'bike'
 require 'garage'
 require 'van'
 
+
+
 describe Van do
-
-  describe 'initialization' do
-    subject {Van.new}
-    station = DockingStation.new
-    bike = Bike.new.report_broken
-    it 'defaults capacity' do
-      described_class::VAN_CAPACITY.times do
-        subject.pick_up(station)
-
-      end
-     expect { subject.pick_up(station) }.to raise_error 'Van is full'
-
-   end
- end
 
   it 'has a default capacity' do
     expect(subject.van_capacity).to eq described_class::VAN_CAPACITY
@@ -37,11 +25,13 @@ describe Van do
   describe 'drop_off' do
     let(:bike) { Bike.new }
     let(:station) { DockingStation.new }
+    let(:garage) {Garage.new}
     it 'drops off broken bikes' do
     station.dock(bike)
     station.select_bikes
     subject.pick_up(station)
-    expect(subject.drop_off).to eq [bike]
+    subject.drop_off(garage)
+    expect(garage.loading_bay).nil?
    end
   end
 end

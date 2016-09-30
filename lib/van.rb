@@ -24,8 +24,9 @@ class Van
 
 
 
-  def drop_off
-
+  def drop_off(garage)
+    garage.loading_bay = @cargo
+    @cargo = []
   end
 
 
